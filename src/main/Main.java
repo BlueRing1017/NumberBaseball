@@ -14,31 +14,27 @@ public class Main {
 		while(true) {
 			if(play) {
 				if (round <= 10) {					
-					System.out.print("[ Round " + round + " ] ìˆ«ìžë¥¼ ìž…ë ¥í•˜ì„¸ìš” : ");
+					System.out.print("[ Round " + round + " ] ¼ýÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
 					b.check();
 					round++;
 				}else {
+					System.out.print("[ Final ] ÃÖÁ¾ ¼ýÀÚ¸¦ ¸»ÇØÁÖ¼¼¿ä : ");
+					b.answer(Integer.parseInt(sc.nextLine()));
 					play = false;
 				}
 			}else {
-				System.out.print("ê²Œìž„ì„ ì§„í–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ? (y/n) ");
+				System.out.print("°ÔÀÓÀ» ÁøÇàÇÏ½Ã°Ú½À´Ï±î? (y/n) ");
 				cmd = sc.nextLine();
 				if (cmd.equals("n")) {
-					System.out.println("í”„ë¡œê·¸ëž¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
-					try {
-						Thread.sleep(500);
-					} catch (InterruptedException e) {e.printStackTrace();}
+					System.out.println("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.");
 					break;
 				}else if (cmd.equals("y")) {
-					System.out.println("ê²Œìž„ì„ ì‹œìž‘í•©ë‹ˆë‹¤.");
+					System.out.println("°ÔÀÓÀ» ½ÃÀÛÇÕ´Ï´Ù.");
 					b.roll();
 					play = true;
+					round = 1;
 				}
 			}
-			
-			
 		}
-
 	}
-
 }

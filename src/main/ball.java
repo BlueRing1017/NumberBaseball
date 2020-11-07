@@ -15,6 +15,7 @@ public class ball {
 	int out = 0;
 	int number;
 	boolean pass = false;
+	boolean err = false;
 	
 	void roll() {
 		fir = (int)(Math.random() * 10);
@@ -27,35 +28,48 @@ public class ball {
 		while (thr == fir) {
 			thr = (int)(Math.random() * 10);
 		}
-		System.out.println("ìˆ«ìê°€ ì„¤ì •ë˜ì—ˆìŠµë‹ˆë‹¤.");
+		System.out.println("¼ıÀÚ°¡ ¼³Á¤µÇ¾ú½À´Ï´Ù."/* + fir + scd + thr*/);
 	}
 	
 	void check() {
-		number = Integer.parseInt(sc.nextLine());
-		afir = number / 100;
-		ascd = (number - (afir * 100)) / 10;
-		athr = (number - (afir * 100)) - (ascd * 10);
-		//System.out.println(afir + " : " + ascd + " : " + athr);
-		if (afir == ascd) {
-			System.out.println("ê° ìë¦¬ì˜ ìˆ«ìëŠ” ì„œë¡œ ì¤‘ë³µë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
-			System.out.print("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš” : ");
+		try {
+			number = Integer.parseInt(sc.nextLine());
+			err = false;
+			what();
+		}catch(NumberFormatException e) {
+			System.out.println("¼ıÀÚ ÀÌ¿ÜÀÇ °ÍÀ» ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
+			System.out.print("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä : ");
+			err = true;
 			check();
-		}else if (afir == athr) {
-			System.out.println("ê° ìë¦¬ì˜ ìˆ«ìëŠ” ì„œë¡œ ì¤‘ë³µë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
-			System.out.print("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš” : ");
-			check();
-		}else if (ascd == athr) {
-			System.out.println("ê° ìë¦¬ì˜ ìˆ«ìëŠ” ì„œë¡œ ì¤‘ë³µë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
-			System.out.print("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš” : ");
-			check();
-		}else {
-			num();
-			if (out == 1) {
-				System.out.println("OUT!");
-			}else {				
-				System.out.println("Strike : " + strike + " | Ball : " + ball);
+		}
+	}
+	void what() {	
+		if (err == false) {
+			afir = number / 100;
+			ascd = (number - (afir * 100)) / 10;
+			athr = (number - (afir * 100)) - (ascd * 10);
+			//System.out.println(afir + " : " + ascd + " : " + athr);
+			if (afir == ascd) {
+				System.out.println("°¢ ÀÚ¸®ÀÇ ¼ıÀÚ´Â ¼­·Î Áßº¹µÇÁö ¾Ê½À´Ï´Ù.");
+				System.out.print("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä : ");
+				check();
+			}else if (afir == athr) {
+				System.out.println("°¢ ÀÚ¸®ÀÇ ¼ıÀÚ´Â ¼­·Î Áßº¹µÇÁö ¾Ê½À´Ï´Ù.");
+				System.out.print("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä : ");
+				check();
+			}else if (ascd == athr) {
+				System.out.println("°¢ ÀÚ¸®ÀÇ ¼ıÀÚ´Â ¼­·Î Áßº¹µÇÁö ¾Ê½À´Ï´Ù.");
+				System.out.print("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä : ");
+				check();
+			}else {
+				num();
+				if (out == 1) {
+					System.out.println("OUT!");
+				}else {				
+					System.out.println("Strike : " + strike + " | Ball : " + ball);
+				}
+				reset();
 			}
-			reset();
 		}
 	}
 	
@@ -89,10 +103,11 @@ public class ball {
 		}else if (athr == fir){
 			ball++;
 			pass = true;
-		}else if (athr == thr){
+		}else if (athr == scd){
 			ball++;
 			pass = true;
 		}
+		
 		if (pass == false) {
 			out = 1;
 		}
@@ -104,6 +119,16 @@ public class ball {
 		strike = 0;
 		ball = 0;
 		out = 0;
+	}
+	
+	void answer(int num) {
+		int answer = (fir * 100) + (scd * 10) + thr;
+		if (num == answer) {
+			System.out.println("Á¤´ä!");
+		}else {
+			System.out.println("¿À´äÀÔ´Ï´Ù.");
+			System.out.println("Á¤´äÀº " + answer + " ÀÔ´Ï´Ù.");
+		}
 	}
 
 }
