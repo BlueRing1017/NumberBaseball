@@ -27,7 +27,7 @@ public class ball {
 		while (thr == fir) {
 			thr = (int)(Math.random() * 10);
 		}
-		System.out.println("숫자가 설정되었습니다." + fir + scd + thr);
+		System.out.println("숫자가 설정되었습니다.");
 	}
 	
 	void check() {
