@@ -19,16 +19,18 @@ public class ball {
 	
 	void roll() {
 		fir = (int)(Math.random() * 10);
+		scd = (int)(Math.random() * 10);
 		while (scd == fir) {
 			scd = (int)(Math.random() * 10);
 		}
+		thr = (int)(Math.random() * 10);
 		while (thr == scd) {
 			thr = (int)(Math.random() * 10);
 		}
 		while (thr == fir) {
 			thr = (int)(Math.random() * 10);
 		}
-		System.out.println("¼ıÀÚ°¡ ¼³Á¤µÇ¾ú½À´Ï´Ù."/* + fir + scd + thr*/);
+		System.out.println("ìˆ«ìê°€ ì„¤ì •ë˜ì—ˆìŠµë‹ˆë‹¤." /*+ fir + scd + thr*/);
 	}
 	
 	void check() {
@@ -37,8 +39,8 @@ public class ball {
 			err = false;
 			what();
 		}catch(NumberFormatException e) {
-			System.out.println("¼ıÀÚ ÀÌ¿ÜÀÇ °ÍÀ» ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
-			System.out.print("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.println("ìˆ«ì ì´ì™¸ì˜ ê²ƒì„ ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
+			System.out.print("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš” : ");
 			err = true;
 			check();
 		}
@@ -50,16 +52,16 @@ public class ball {
 			athr = (number - (afir * 100)) - (ascd * 10);
 			//System.out.println(afir + " : " + ascd + " : " + athr);
 			if (afir == ascd) {
-				System.out.println("°¢ ÀÚ¸®ÀÇ ¼ıÀÚ´Â ¼­·Î Áßº¹µÇÁö ¾Ê½À´Ï´Ù.");
-				System.out.print("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä : ");
+				System.out.println("ê° ìë¦¬ì˜ ìˆ«ìëŠ” ì„œë¡œ ì¤‘ë³µë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+				System.out.print("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš” : ");
 				check();
 			}else if (afir == athr) {
-				System.out.println("°¢ ÀÚ¸®ÀÇ ¼ıÀÚ´Â ¼­·Î Áßº¹µÇÁö ¾Ê½À´Ï´Ù.");
-				System.out.print("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä : ");
+				System.out.println("ê° ìë¦¬ì˜ ìˆ«ìëŠ” ì„œë¡œ ì¤‘ë³µë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+				System.out.print("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš” : ");
 				check();
 			}else if (ascd == athr) {
-				System.out.println("°¢ ÀÚ¸®ÀÇ ¼ıÀÚ´Â ¼­·Î Áßº¹µÇÁö ¾Ê½À´Ï´Ù.");
-				System.out.print("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä : ");
+				System.out.println("ê° ìë¦¬ì˜ ìˆ«ìëŠ” ì„œë¡œ ì¤‘ë³µë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+				System.out.print("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš” : ");
 				check();
 			}else {
 				num();
@@ -124,10 +126,10 @@ public class ball {
 	void answer(int num) {
 		int answer = (fir * 100) + (scd * 10) + thr;
 		if (num == answer) {
-			System.out.println("Á¤´ä!");
+			System.out.println("ì •ë‹µ!");
 		}else {
-			System.out.println("¿À´äÀÔ´Ï´Ù.");
-			System.out.println("Á¤´äÀº " + answer + " ÀÔ´Ï´Ù.");
+			System.out.println("ì˜¤ë‹µì…ë‹ˆë‹¤.");
+			System.out.println("ì •ë‹µì€ " + answer + " ì…ë‹ˆë‹¤.");
 		}
 	}
 

@@ -14,22 +14,22 @@ public class Main {
 		while(true) {
 			if(play) {
 				if (round <= 10) {					
-					System.out.print("[ Round " + round + " ] ¼ýÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+					System.out.print("[ Round " + round + " ] ìˆ«ìžë¥¼ ìž…ë ¥í•˜ì„¸ìš” : ");
 					b.check();
 					round++;
 				}else {
-					System.out.print("[ Final ] ÃÖÁ¾ ¼ýÀÚ¸¦ ¸»ÇØÁÖ¼¼¿ä : ");
+					System.out.print("[ Final ] ìµœì¢… ìˆ«ìžë¥¼ ë§í•´ì£¼ì„¸ìš” : ");
 					b.answer(Integer.parseInt(sc.nextLine()));
 					play = false;
 				}
 			}else {
-				System.out.print("°ÔÀÓÀ» ÁøÇàÇÏ½Ã°Ú½À´Ï±î? (y/n) ");
+				System.out.print("ê²Œìž„ì„ ì§„í–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ? (y/n) ");
 				cmd = sc.nextLine();
 				if (cmd.equals("n")) {
-					System.out.println("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.");
+					System.out.println("í”„ë¡œê·¸ëž¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
 					break;
 				}else if (cmd.equals("y")) {
-					System.out.println("°ÔÀÓÀ» ½ÃÀÛÇÕ´Ï´Ù.");
+					System.out.println("ê²Œìž„ì„ ì‹œìž‘í•©ë‹ˆë‹¤.");
 					b.roll();
 					play = true;
 					round = 1;
